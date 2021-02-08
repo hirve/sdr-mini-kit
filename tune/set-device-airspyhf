@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo airspyhf > ../config/device
+echo "LNA=0.0,RF=0.0" > ../config/gains

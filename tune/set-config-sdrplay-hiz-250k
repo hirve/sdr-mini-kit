@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./set-antenna-hiz
+./set-device-sdrplay
+./set-samplerate-250k

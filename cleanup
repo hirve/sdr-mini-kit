@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
+
+rm -r $DIR/bin/*
+rm -r $DIR/data/*
+rm -rf $DIR/src/kissfft/
+rm $DIR/icecast/*.log
+echo "0.0.0.0" > $DIR/config/remote_ip

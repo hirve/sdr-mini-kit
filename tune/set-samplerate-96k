@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo `echo $0 | grep -oP "\d+"`000 > ../config/samplerate

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then freq=`cat ./config/freq`; else freq=$1; fi
+echo Frequency = $freq
+samplerate=`cat ./config/samplerate`
+filename="./data/"`date +"soapy_%Y%m%d_%H%M%S"`"_"`printf "%.0f" $freq`"_"$samplerate"_fc.raw"
+
+mkdir -p data
+
+./bin/sdr `cat ./config/device` $freq $samplerate 20 > $filename

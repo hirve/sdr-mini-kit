@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then freq=`cat ./config/freq`; else freq=$1; fi
+echo Frequency = $freq
+
+./bin/sdr `cat ./config/device` `cat ./config/antenna` `cat ./config/gains` $freq `cat ./config/samplerate` 0 \
+    | ./bin/filter 2 \
+    | ./bin/decimate 2 \
+    | netcat -l `cat ./config/remote_port`
