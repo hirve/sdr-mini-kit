@@ -6,7 +6,7 @@ Building SDR mapping IQ streams with linux pipes.
 * Generating IQ stream with noise or empty signal
 * Transmitting internet audio streams into IQ stream
 * Lowpass filtering and decimating IQ stream
-* Piping streams to TCP, GQRX, Icecast, playing it as audio
+* Piping streams to TCP, GQRX, Icecast, playing it as an audio
 * Generating waterfall image from IQ stream
 
 ## Installation
@@ -18,7 +18,7 @@ sudo apt install ffmpeg icecast2
 If you want to get IQ stream from SoapySDR install it from https://github.com/pothosware/SoapySDR/
 
 ### Airspy
-If you want to get IQ stream from Airspy install thier software from https://github.com/airspy
+If you want to get IQ stream from Airspy install their software from https://github.com/airspy
 
 ### Sound card
 You can take IQ stream from sound card stereo input, just make sure ```arecord``` command is working in your command line.
