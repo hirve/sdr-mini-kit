@@ -6,7 +6,8 @@ Building SDR mapping IQ streams with linux pipes.
 * Generating IQ stream with noise or empty signal
 * Transmitting internet audio streams into IQ stream
 * Lowpass filtering and decimating IQ stream
-* Piping streams to TCP, GQRX, playing it as audio.
+* Piping streams to TCP, GQRX, playing it as audio
+* Generating waterfall image from IQ stream
 
 ## Installation
 Install dependencies:
