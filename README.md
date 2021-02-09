@@ -23,6 +23,9 @@ If you want to get IQ stream from Airspy install their software from https://git
 ### Sound card
 You can take IQ stream from sound card stereo input, just make sure ```arecord``` command is working in your command line.
 
+### Build C modules
+Open project root folder and run ```./build```
+
 ## Usage
 Look into bash scripts in the project root and connect modules with pipes similarly for your app.
 
