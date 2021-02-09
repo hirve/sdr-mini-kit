@@ -29,6 +29,9 @@ Open project root folder and run ```./build```
 ## Usage
 Look into bash scripts in the project root and connect modules with pipes similarly for your app.
 
+## System requirements
+Some apps can run on Raspberry Pi Zero. Other will require more calculation performance. Notice that Raspberri Pi Zero CPU bcm2835 can easily work at 1GHz so don't hesitate to overclock it.
+
 ## Thanks
 * KissFFT - https://github.com/mborgerding/kissfft
 * TFilter - http://t-filter.engineerjs.com/
