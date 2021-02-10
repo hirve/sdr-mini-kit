@@ -1,6 +1,6 @@
 # sdr-mini-kit
-Building SDR by mapping IQ streams with linux pipes.
-
+ Building SDR apps by mapping IQ streams with pipes in CLI or bash scripts. 
+ 
 ## Features
 * Taking IQ stream from SoapySDR, Airspy HF+, and Sound card input
 * Generating IQ stream with noise or empty signal
