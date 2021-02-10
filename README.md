@@ -14,17 +14,21 @@ Install dependencies:
 ```
 sudo apt install ffmpeg icecast2
 ```
-### SoapySDR
+### Install IQ sources
+#### SoapySDR
 If you want to get IQ stream from SoapySDR install it from https://github.com/pothosware/SoapySDR/
 
-### Airspy
+#### Airspy
 If you want to get IQ stream from Airspy install their software from https://github.com/airspy
 
-### Sound card
+#### Sound card
 You can take IQ stream from sound card stereo input, just make sure ```arecord``` command is working in your command line.
 
 ### Build C modules
 Open project root folder and run ```./build```
+
+### Starting Icecast
+If you want to use Icecast, go to the **icecast** folder and run ```./start-icecast```
 
 ## Usage
 Look into bash scripts in the project root and connect modules with pipes similarly for your app.
