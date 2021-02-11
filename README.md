@@ -16,7 +16,7 @@ sudo apt install ffmpeg icecast2
 ```
 ### Install IQ sources
 #### SoapySDR
-If you want to get IQ stream from SoapySDR install it from https://github.com/pothosware/SoapySDR/
+Install it from https://github.com/pothosware/SoapySDR/
 
 #### Airspy
 If you want to get IQ stream from Airspy install their software from https://github.com/airspy
