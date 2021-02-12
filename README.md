@@ -14,7 +14,7 @@ Install dependencies:
 ```
 sudo apt install ffmpeg icecast2
 ```
-### Install IQ sources
+Install IQ sources:
 #### SoapySDR
 Install it from https://github.com/pothosware/SoapySDR/
 
