@@ -14,6 +14,8 @@
 ```
 sudo apt install ffmpeg icecast2
 ```
+When Icecast asks to configure it say no, because we will use the config we have in the project.
+
 ### Install IQ sources
 #### SoapySDR
 Install it from https://github.com/pothosware/SoapySDR/
