@@ -28,7 +28,7 @@ You can take IQ stream from sound card stereo input, just make sure ```arecord``
 Open project root folder and run ```./build```
 
 ### Starting Icecast
-If you want to use Icecast, go to the **icecast** folder and run ```./start-icecast```
+If you want to use Icecast, go to the **icecast** folder and run ```./start-icecast```, the port is 4625.
 
 ## Usage
 Look into bash scripts in the project root and connect modules with pipes similarly for your app.
