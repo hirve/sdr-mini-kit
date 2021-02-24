@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then freq=`cat ./config/freq`; else freq=$1; fi
+echo LSB carrier Frequency = $freq
+freqM=`python -c "print(($freq-1500)/1e6)"`
+echo Airspy tune Frequency = $freqM MHz
+
+r=`cat ./config/samplerate`
+r_out=`python -c "print($r/8)"`
+echo Output IQ Samplerate = $r_out
+echo Piping IQ to TCP, localhost:`cat ./config/remote_port`
+echo Run LSB decoder at client side.
+
+airspyhf_rx -f $freqM -a `cat ./config/samplerate` -r stdout \
+    | ./bin/filter 8 \
+    | ./bin/decimate 8 \
+    | ./bin/filter 8 \
+    | netcat -l `cat ./config/remote_port`
