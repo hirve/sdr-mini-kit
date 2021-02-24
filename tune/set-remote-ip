@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo -n "Enter remote IP: "
+read ip
+echo -n $ip > ../config/remote_ip
