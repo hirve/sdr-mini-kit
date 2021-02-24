@@ -11,6 +11,9 @@
 #define INIT_LEVEL 10.0
 
 int main () {
+    char IIII[100];
+    memset(IIII, '|', 99);
+    IIII[99] = '\0';
 
     fprintf(stderr, "AGC: taking IQ data from STDIN ...\n");
 
@@ -24,7 +27,8 @@ int main () {
             level = FEEDBACK_DN * (double)fabs(iq[0] * LEVEL_MULTIPLIER) + (1 - FEEDBACK_DN) * level;
         }
         if (++i % 4000 == 0) {
-            fprintf(stderr, "    Level: %1.2lf    \r", level);
+            int scale = log10(level * 100) * 8.0;
+            fprintf(stderr, "[ Level ] \e[32m%.*s\e[39m %1.2lf                \r", scale, IIII, level);
         }
         out[0] = iq[0] / level * AMPLIFIER;
         out[1] = iq[1] / level * AMPLIFIER;
