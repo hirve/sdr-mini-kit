@@ -32,6 +32,7 @@ Open project root folder and run ```./build```
 
 ### Starting Icecast
 If you want to use Icecast, go to the **icecast** folder and run ```./start-icecast```, the port is 4625.
+If you want to share the Icecast stream via Internet - don't forget to replace the **hackme** password with some stronger.
 
 ## Usage
 Look into bash scripts in the project root and connect modules with pipes similarly for your app.
