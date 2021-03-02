@@ -1,21 +1,15 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then freq=`cat ./config/freq`; else freq=$1; fi
-echo Frequency = $freq
-samplerate=`cat ./config/samplerate`
-r_out=$( echo $((`cat ./config/samplerate` / 8)) )
-echo Output samplerate = $r_out
-filename="./data/spectrum_"`date +"%Y-%m-%d_%H-%M-%S"`"_"`printf "%.0f" $freq`"_"$r_out""
-
-mkdir -p data
+r=`cat ./config/samplerate`
+r_out=`python -c "print($r/16)"`
 
 while true
 do
     nc `cat ./config/remote_ip` `cat ./config/remote_port` \
-        | ./bin/filter 8 \
-        | ./bin/demod usb \
-        | ./bin/agc \
         | ./bin/filter 4 \
-        | play -q -v 300 -r $( echo $((`cat ./config/samplerate` / 8)) ) -t raw -b 32 -c 2 -e float -
+        | ./bin/demod usb 4 \
+        | ./bin/filter 2 \
+        | ./bin/agc \
+        | play -q -v 300 -r $r_out -t raw -b 32 -c 2 -e float -
     sleep 1
 done
