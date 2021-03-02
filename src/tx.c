@@ -14,20 +14,20 @@
 
 #define FADING_LEVEL 0.0
 #define FADING_N 5
-#define FADING_INIT_EXP 0.1
-#define FADING_EXP_DIFF 3.0
+#define FADING_INIT_ORDER 0.1
+#define FADING_ORDER_DIFF 3.0
 #define FADING_DT_MULTIPLIER 0.00001
 
 static double fadingT[FADING_N], fadingDT[FADING_N], fadingLevel;
 
 void init_fading (unsigned seed) {
     srand(seed);
-    double exp = FADING_INIT_EXP;
+    double order = FADING_INIT_ORDER;
     fadingLevel = 1.0 / FADING_N;
     for (int i = 0; i < FADING_N; i++) {
         fadingT[i] = 0;
-        fadingDT[i] = FADING_DT_MULTIPLIER * (exp + exp * 0.25 * (double)rand() / (double)RAND_MAX - 0.5);
-        exp *= FADING_EXP_DIFF;
+        fadingDT[i] = FADING_DT_MULTIPLIER * (order + order * 0.25 * (double)rand() / (double)RAND_MAX - 0.5);
+        order *= FADING_ORDER_DIFF;
     }
 }
 
@@ -104,7 +104,7 @@ int main (int argc, char *argv[]) {
         for (int i = 0; i < 2; i++) {
             charOutput[i] = (char*)&output[i];
             for (int k = 0; k < 4; k++) {
-                printf("%c", charOutput[i][k]);
+                putchar(charOutput[i][k]);
             }
         }
 

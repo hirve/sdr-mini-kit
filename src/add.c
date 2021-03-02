@@ -45,7 +45,7 @@ int main (int argc, char *argv[]) {
         for (int i = 0; i < 2; i++) {
             charOutput[i] = (char*)&output[i];
             for (int k = 0; k < 4; k++) {
-                printf("%c", charOutput[i][k]);
+                putchar(charOutput[i][k]);
             }
         }
     }
