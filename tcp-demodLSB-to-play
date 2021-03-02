@@ -1,15 +1,18 @@
 #!/bin/bash
 
+ip=`cat ./config/remote_ip`
+port=`cat ./config/remote_port`
 r=`cat ./config/samplerate`
 r_out=`python -c "print($r/16)"`
 
 while true
 do
-    nc `cat ./config/remote_ip` `cat ./config/remote_port` \
+    echo Listening $ip:$port
+    nc $ip $port \
         | ./bin/filter 4 \
         | ./bin/demod lsb 4 \
         | ./bin/filter 2 \
         | ./bin/agc \
-        | play -q -v 300 -r $r_out -t raw -b 32 -c 2 -e float -
+        | play -q -v 50 -r $r_out -t raw -b 32 -c 2 -e float -
     sleep 1
 done
