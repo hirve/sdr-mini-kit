@@ -13,6 +13,6 @@ do
         | ./bin/demod lsb 4 \
         | ./bin/filter 2 \
         | ./bin/agc \
-        | play -q -v 50 -r $r_out -t raw -b 32 -c 2 -e float -
+        | play -q -V0 -v 50 -r $r_out -t raw -b 32 -c 2 -e float -
     sleep 1
 done
