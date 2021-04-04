@@ -31,7 +31,7 @@ int main (int argc, char *argv[]) {
     memset(IIII, '|', 99);
     IIII[99] = '\0';
 
-    fprintf(stderr, "AGC: taking IQ data from STDIN ...\n");
+    fprintf(stderr, "[%s] taking IQ data from STDIN ...\n", argv[0]);
     fprintf(stderr, "[%s] SQL is %f\n", argv[0], sql);
 
     float iq[2], out[2];
@@ -57,6 +57,6 @@ int main (int argc, char *argv[]) {
         write_two_floats(out);
     }
 
-    fprintf(stderr, "AGC: done.\n");
+    fprintf(stderr, "[%s] done.\n", argv[0]);
     return EXIT_SUCCESS;
 }
