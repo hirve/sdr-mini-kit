@@ -10,7 +10,7 @@ r_out=`python -c "print($r/16)"`
 port=`cat ./config/remote_port`
 echo Output IQ Samplerate = $r_out
 echo Piping IQ to TCP, localhost:$port
-echo Run LSB decoder at client side.
+echo Run SSB decoder at client side.
 
 airspyhf_rx -f $freqM -a $r -r stdout \
     | ./bin/filter 8 \
