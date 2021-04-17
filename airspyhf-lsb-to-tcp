@@ -17,4 +17,5 @@ airspyhf_rx -f $freqM -a $r -r stdout \
     | ./bin/decimate 8 \
     | ./bin/filter 2 \
     | ./bin/decimate 2 \
+    | ./bin/iqswap \
     | netcat -l $port
