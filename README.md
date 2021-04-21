@@ -28,7 +28,7 @@ If you want to get IQ stream from Airspy install their software from https://git
 You can take IQ stream from sound card stereo input, just make sure ```arecord``` command is working in your command line.
 
 ### Build C modules
-Open project root folder and run ```./build```
+Open the project root folder and run ```./build```
 
 ### Starting Icecast
 If you want to use Icecast, go to the **icecast** folder and run ```./start-icecast```, the port is 4625.
