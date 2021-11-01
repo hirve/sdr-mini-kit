@@ -13,7 +13,7 @@
 ## Installation
 ### Install dependencies
 ```
-sudo apt install ffmpeg icecast2
+sudo apt install ffmpeg icecast2 sox
 ```
 When Icecast asks to configure it say no, because we will use the config we have in the project.
 
