@@ -18,6 +18,8 @@ do
         gcc -std=c99 $file -lSoapySDR -lm -o $output -O3 -Wall -Wextra
     elif [[ $file = "./src/spectrum.c" ]]; then
         gcc -std=c99 $file -lm -o $output -I kissfft ./src/kissfft/kiss_fft.c -O3 -Wall -Wextra
+    elif [[ $file = "./src/waterfall.c" ]]; then
+        gcc -std=c99 $file -lm -o $output -I kissfft ./src/kissfft/kiss_fft.c -O3 -Wall -Wextra
     else
         gcc -std=c99 $file -lm -o $output -O3 -Wall -Wextra
     fi
