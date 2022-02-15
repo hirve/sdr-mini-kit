@@ -8,6 +8,7 @@
 * Lowpass filtering and decimating IQ stream
 * Piping streams to TCP, GQRX, Icecast, playing it as an audio
 * Generating waterfall image from IQ stream
+* Playing and streaming waterfall as video
 * SSB demodulation
 
 ## Installation
