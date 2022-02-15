@@ -3,7 +3,6 @@
 if [ -z "$1" ]; then freq=`cat ./config/freq`; else freq=$1; fi
 echo Frequency = $freq
 samplerate=`cat ./config/samplerate`
-filename="./data/spectrum_"`date +"%Y-%m-%d_%H-%M-%S"`"_"`printf "%.0f" $freq`"_"$samplerate""
 
 mkdir -p data
 
