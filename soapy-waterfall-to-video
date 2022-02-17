@@ -4,8 +4,6 @@ if [ -z "$1" ]; then freq=`cat ./config/freq`; else freq=$1; fi
 echo Frequency = $freq
 samplerate=`cat ./config/samplerate`
 
-mkdir -p data
-
 ./bin/sdr `cat ./config/device` `cat ./config/antenna` `cat ./config/gains` $freq $samplerate 0 \
     | ./bin/waterfall 2048 500 15.0 8 \
     | ffplay -f rawvideo -pixel_format gray -s 2048x500 -i - -vf eq=brightness=0.07
