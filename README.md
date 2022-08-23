@@ -51,7 +51,7 @@ If you want to share the Icecast stream via Internet - don't forget to replace t
 Look into bash scripts in the project root and connect modules with pipes similarly for your app. Use scripts in ```tune/``` folder to set common parameters like samplerate, antenna, default frequency, remote server IP.
 
 ## System requirements
-Some apps can run on Raspberry Pi Zero. Other will require more calculation performance. Notice that Raspberri Pi Zero CPU bcm2835 can easily work at 1GHz so don't hesitate to overclock it.
+Some apps can run on Raspberry Pi Zero. Other will require more calculation performance. Notice that Raspberry Pi Zero CPU bcm2835 can easily work at 1GHz so don't hesitate to overclock it.
 
 ## Thanks
 * KissFFT - https://github.com/mborgerding/kissfft
