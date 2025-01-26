@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then freq=`cat ../config/freq`; else freq=$1; fi
+echo Frequency = $freq
+samplerate=`cat ../config/samplerate`
+filename="../data/spectrum_"`date +"%Y-%m-%d_%H-%M-%S"`"_"`printf "%.0f" $freq`"_"$samplerate""
+
+mkdir -p data
+
+../bin/sdr `cat ../config/device` `cat ../config/antenna` `cat ../config/gains` $freq $samplerate 30 \
+    | ../bin/add tick 0.1 250 \
+    | ../bin/spectrum 8192 1024 10.0 $filename

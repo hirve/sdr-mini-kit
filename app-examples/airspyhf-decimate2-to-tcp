@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then freq=`cat ../config/freq`; else freq=$1; fi
+echo Frequency = $freq
+freqM=`python -c "print($freq/1e6)"`
+
+airspyhf_rx -f $freqM -a `cat ../config/samplerate` -r stdout \
+    | ../bin/filter 2 \
+    | ../bin/decimate 2 \
+    | netcat -l `cat ../config/remote_port`

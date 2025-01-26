@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Redirect IQ stream to GQRX
-# GQRX plays pipe like an IQ file
-
-mkfifo ./data/iq_output_pipe
-
-nc `cat ./config/remote_ip` `cat ./config/remote_port` > ./data/iq_output_pipe

@@ -1,20 +1,20 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then freq=`cat ./config/freq`; else freq=$1; fi
+if [ -z "$1" ]; then freq=`cat ../config/freq`; else freq=$1; fi
 echo USB carrier Frequency = $freq
 freqM=`python -c "print(($freq+1500)/1e6)"`
 echo Airspy tune Frequency = $freqM MHz
 
-r=`cat ./config/samplerate`
+r=`cat ../config/samplerate`
 r_out=`python -c "print($r/16)"`
-port=`cat ./config/remote_port`
+port=`cat ../config/remote_port`
 echo Output IQ Samplerate = $r_out
 echo Piping IQ to TCP, localhost:$port
 echo Run SSB decoder at client side.
 
 airspyhf_rx -f $freqM -a $r -r stdout \
-    | ./bin/filter 8 \
-    | ./bin/decimate 8 \
-    | ./bin/filter 2 \
-    | ./bin/decimate 2 \
+    | ../bin/filter 8 \
+    | ../bin/decimate 8 \
+    | ../bin/filter 2 \
+    | ../bin/decimate 2 \
     | netcat -l $port
