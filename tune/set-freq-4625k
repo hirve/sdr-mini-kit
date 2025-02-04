@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo `echo $0 | grep -oP "\d+"`e3 > ../config/freq

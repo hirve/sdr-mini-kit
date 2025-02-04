@@ -1,5 +1,0 @@
-#!/bin/bash
-
-./set-antenna-rx
-./set-device-airspyhf
-./set-samplerate-192k

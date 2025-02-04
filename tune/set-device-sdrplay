@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo sdrplay > ../config/device
-echo "IFGR=20.0,RFGR=3.0" > ../config/gains
