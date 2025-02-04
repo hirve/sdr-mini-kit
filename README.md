@@ -36,7 +36,7 @@ If you want to use Icecast, go to the **icecast** folder and run ```./start-icec
 If you want to share the Icecast stream via Internet - don't forget to replace the **hackme** password with some stronger.
 
 ## Usage
-Look into bash scripts in the ```app-examples/``` folder, copy some of them into the ```app/``` folder, edit or connect modules from ```bin/``` folder with pipes another way you want. Use scripts in ```tune/``` folder to set common parameters like samplerate, antenna, default frequency, remote server IP or just hardcode these parameters in your apps.
+Look into bash scripts in the ```app-examples/``` folder, copy some of them into the ```app/``` folder, edit or connect modules from ```bin/``` folder with pipes another way you want.
 
 ## System requirements
 Some apps can run on Raspberry Pi Zero. Other will require more calculation performance. Notice that Raspberry Pi Zero CPU bcm2835 can easily work at 1GHz so don't hesitate to overclock it.
