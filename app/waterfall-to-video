@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then freq=`cat ../config/freq`; else freq=$1; fi
-echo Frequency = $freq
-samplerate=`cat ../config/samplerate`
-
 ../bin/sdr sdrplay 'Antenna A' `cat ../config/gains` 15500e3 125000 0 \
     | ../bin/waterfall 2048 500 25.0 4 \
     | ffplay -f rawvideo -pixel_format gray -video_size 2048x500 -i -
