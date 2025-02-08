@@ -1,5 +1,7 @@
 #!/bin/bash
 
-../bin/sdr sdrplay 'Antenna A' `cat ../config/gains` 15500e3 125000 0 \
+source ../config/sdrplay-256k
+
+../bin/sdr $device "$antenna" $gains $freq $samplerate 0 \
     | ../bin/waterfall 2048 500 25.0 4 \
     | ffplay -f rawvideo -pixel_format gray -video_size 2048x500 -i -
