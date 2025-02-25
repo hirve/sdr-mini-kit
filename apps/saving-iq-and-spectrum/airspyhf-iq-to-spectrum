@@ -5,9 +5,9 @@ source ../config/airspyhf-192k
 if [ "$1" ]; then freq=$1; fi
 echo Frequency = $freq
 freqM=`python -c "print(($freq-1500)/1e6)"`
-filename="../data/spectrum_"`date +"%Y-%m-%d_%H-%M-%S"`"_"`printf "%.0f" $freq`"_"$samplerate""
+filename="./data/spectrum_"`date +"%Y-%m-%d_%H-%M-%S"`"_"`printf "%.0f" $freq`"_"$samplerate""
 
-mkdir -p ../data
+mkdir -p ./data
 
 sudo airspyhf_rx -f $freqM -a $samplerate -r stdout \
     | ../bin/spectrum 8192 1024 100.0 $filename

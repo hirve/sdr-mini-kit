@@ -4,8 +4,9 @@
 # Samplerate is 48000
 # Replace <STREAM_URL> with any audio stream URL
 
-for i in {1..6}; do mkfifo ../data/P$i; done
-mkfifo ../data/iq_output_pipe
+mkdir -p ./data
+for i in {1..6}; do mkfifo ./data/P$i; done
+mkfifo ./data/iq_output_pipe
 
 ffmpeg -y -v quiet -i "<STREAM_URL>" -f f32le -ac 1 -ar 48000 -filter:a "lowpass=f=3500,adelay=3000|3000" ../data/P1 &
 ffmpeg -y -v quiet -i "<STREAM_URL>" -f f32le -ac 1 -ar 48000 -filter:a "lowpass=f=3500,adelay=10000|10000" ../data/P2 &

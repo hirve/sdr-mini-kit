@@ -1,0 +1,3 @@
+local_port='9000'
+remote_port='9000'
+samplerate='48000'

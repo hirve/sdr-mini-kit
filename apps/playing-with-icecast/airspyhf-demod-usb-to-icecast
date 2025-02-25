@@ -1,0 +1,21 @@
+#!/bin/bash
+
+source ../config/airspyhf-256k
+
+if [ "$1" ]; then freq=$1; fi
+echo Frequency = $freq
+freqM=`python -c "print(($freq+1500)/1e6)"`
+echo Airspy tune Frequency = $freqM MHz
+
+samplerate_out=`python -c "print($samplerate/16)"`
+
+sudo airspyhf_rx -f $freqM -a $samplerate -r stdout \
+    | ../bin/filter 8 \
+    | ../bin/decimate 8 \
+    | ../bin/filter 8 \
+    | ../bin/decimate 2 \
+    | ../bin/demod usb 4 \
+    | ../bin/filter 2 \
+    | ../bin/agc \
+    | ffmpeg -loglevel quiet -f f32le -ac 2 -ar $samplerate_out -i - \
+        -filter:a "volume=30dB" -f ogg -ac 1 -ar 8000 -content_type audio/ogg icecast://source:hackme@localhost:4625/sdr

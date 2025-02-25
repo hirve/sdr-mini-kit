@@ -1,0 +1,7 @@
+device='airspyhf'
+antenna='RX'
+freq='14100e3'
+gains='LNA=0.0,RF=0.0'
+local_port='9000'
+remote_port='9000'
+samplerate='256000'

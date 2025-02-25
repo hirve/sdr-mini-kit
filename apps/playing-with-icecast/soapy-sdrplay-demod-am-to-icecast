@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source ../config/sdrplay-250k
+
+if [ "$1" ]; then freq=$1; fi
+echo Frequency = $freq
+samplerate_out=`python -c "print(int($samplerate/64))"`
+
+../bin/sdr $device "$antenna" "$gains" $freq $samplerate 0 \
+    | ../bin/filter 8 \
+    | ../bin/decimate 8 \
+    | ../bin/filter 8 \
+    | ../bin/decimate 8 \
+    | ../bin/demod-am \
+    | ../bin/agc \
+    | ffmpeg -loglevel quiet -f f32le -ac 2 -ar $samplerate_out -i - \
+        -filter:a "volume=30dB" -f ogg -ac 1 -ar 8000 -content_type audio/ogg icecast://source:hackme@localhost:4625/sdr
