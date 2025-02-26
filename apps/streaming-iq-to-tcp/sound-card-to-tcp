@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source ../../config/audio-input
+
+arecord -c 2 -f s16_le -r 48000 -D $device \
+    | ffmpeg -i - -f f32le - \
+    | netcat -l -p $local_port

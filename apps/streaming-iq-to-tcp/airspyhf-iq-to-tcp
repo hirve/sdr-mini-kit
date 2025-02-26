@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source ../../config/airspyhf-256k
+
+if [ "$1" ]; then freq=$1; fi
+echo Frequency = $freq
+freqM=`python -c "print($freq/1e6)"`
+
+sudo airspyhf_rx -f $freqM -a $samplerate -r stdout \
+    | netcat -l -p $local_port

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source ../config/remote-by-tcp
+
+nc $remote_ip $remote_port \
+    | ../bin/waterfall 2048 1080 30.0 1 \
+    | ffplay -fs -f rawvideo -pixel_format gray -video_size 2048x1080 -vf "crop=1920:1080:64:0" -i -
