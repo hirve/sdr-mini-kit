@@ -1,5 +1,5 @@
 device='sdrplay'
-antenna='Hi-Z'
+antenna='Antenna A'
 freq='14150e3'
 gains='IFGR=20.0,RFGR=3.0'
 local_port='9000'

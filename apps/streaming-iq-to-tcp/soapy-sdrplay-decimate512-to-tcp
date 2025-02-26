@@ -6,4 +6,10 @@ if [ "$1" ]; then freq=$1; fi
 echo Frequency = $freq
 
 ../../bin/sdr $device "$antenna" "$gains" $freq $samplerate 0 \
+    | ../../bin/filter 8 \
+    | ../../bin/decimate 8 \
+    | ../../bin/filter 8 \
+    | ../../bin/decimate 8 \
+    | ../../bin/filter 8 \
+    | ../../bin/decimate 8 \
     | netcat -l -p $local_port

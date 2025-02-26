@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source ../../config/sdrplay-250k
+
+echo Frequency = $freq
+
+mkdir -p ./data
+mkfifo ./data/P1
+
+ffmpeg -y -i $1 -f f32le -ac 1 -ar $samplerate -filter:a "lowpass=f=3500,volume=20" ./data/P1 &
+
+sleep 1
+
+../../bin/sdr $device "$antenna" "$gains" $freq $samplerate 0 \
+    | ../../bin/tx ./data/P1 15e3 1e-2 am $samplerate 1.0 \
+    | netcat -l -p $local_port

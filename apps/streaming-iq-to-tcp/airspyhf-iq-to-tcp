@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../config/airspyhf-256k
+source ../../config/airspyhf-256k
 
 if [ "$1" ]; then freq=$1; fi
 echo Frequency = $freq
