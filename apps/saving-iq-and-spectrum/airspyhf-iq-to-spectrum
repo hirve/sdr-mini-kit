@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../config/airspyhf-192k
+source ../../config/airspyhf-192k
 
 if [ "$1" ]; then freq=$1; fi
 echo Frequency = $freq
@@ -10,4 +10,4 @@ filename="./data/spectrum_"`date +"%Y-%m-%d_%H-%M-%S"`"_"`printf "%.0f" $freq`"_
 mkdir -p ./data
 
 sudo airspyhf_rx -f $freqM -a $samplerate -r stdout \
-    | ../bin/spectrum 8192 1024 100.0 $filename
+    | ../../bin/spectrum 8192 1024 100.0 $filename

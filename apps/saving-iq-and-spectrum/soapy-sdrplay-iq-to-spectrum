@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../config/sdrplay-250k
+source ../../config/sdrplay-250k
 
 if [ "$1" ]; then freq=$1; fi
 echo Frequency = $freq
@@ -8,5 +8,5 @@ filename="./data/spectrum_"`date +"%Y-%m-%d_%H-%M-%S"`"_"`printf "%.0f" $freq`"_
 
 mkdir -p ./data
 
-../bin/sdr $device "$antenna" "$gains" $freq $samplerate 10 \
-    | ../bin/spectrum 8192 1024 10.0 $filename
+../../bin/sdr $device "$antenna" "$gains" $freq $samplerate 10 \
+    | ../../bin/spectrum 8192 1024 10.0 $filename
