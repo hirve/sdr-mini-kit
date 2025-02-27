@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ../config/remote-by-tcp
+source ../../config/remote-by-tcp
 
 nc $remote_ip $remote_port \
-    | ../bin/waterfall 2048 360 50.0 1 \
+    | ../../bin/waterfall 2048 360 50.0 1 \
     | ffplay -f rawvideo -pixel_format gray -video_size 2048x360 -i -

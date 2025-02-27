@@ -3,9 +3,9 @@
 # Redirect IQ stream to GQRX
 # GQRX plays pipe like an IQ file
 
-source ../config/remote-by-tcp
+source ../../config/remote-by-tcp
 
-mkdir -p ../data
-mkfifo ../data/iq_output_pipe
+mkdir -p ./data
+mkfifo ./data/iq_output_pipe
 
-nc $remote_ip $remote_port > ../data/iq_output_pipe
+nc $remote_ip $remote_port > ./data/iq_output_pipe
