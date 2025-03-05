@@ -27,16 +27,6 @@ int main (int argc, char *argv[]) {
 
     size_t length;
 
-    SoapySDRKwargs *results = SoapySDRDevice_enumerate(NULL, &length);
-    for (size_t i = 0; i < length; i++) {
-        fprintf(stderr, "[%s] Found device #%d: ", argv[0], (int)i);
-        for (size_t j = 0; j < results[i].size; j++) {
-            fprintf(stderr, "    %s=%s, ", results[i].keys[j], results[i].vals[j]);
-        }
-        fprintf(stderr, "\n");
-    }
-    SoapySDRKwargsList_clear(results, length);
-
     SoapySDRKwargs args = {};
     SoapySDRKwargs_set(&args, "driver", driver);
     SoapySDRDevice *sdr = SoapySDRDevice_make(&args);
