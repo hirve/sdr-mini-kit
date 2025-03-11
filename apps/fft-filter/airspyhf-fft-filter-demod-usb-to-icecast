@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source ../../config/airspyhf-256k
+
+samplerate=192000
+freq=225e3 # to listen Poland at 225kHz
+if [ "$1" ]; then freq=$1; fi
+echo Frequency = $freq
+freqM=`python -c "print($freq/1e6)"`
+
+sudo airspyhf_rx -f $freqM -a $samplerate -r stdout \
+    | ../../bin/agc \
+    | ../../bin/fft-filter 65536 100 1000 0.0001 \
+    | ffmpeg -loglevel quiet -f f32le -ac 2 -ar 192000 -i - \
+        -filter:a "volume=30dB" -f ogg -ac 1 -ar 11025 -b 32k -content_type audio/ogg icecast://source:hackme@localhost:4625/sdr
+
+#    | netcat -l -p $local_port # for test

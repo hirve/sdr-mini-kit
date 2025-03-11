@@ -3,13 +3,12 @@
 source ../../config/sdrplay-250k
 
 samplerate=125000
-freq=200e3 # to listen Poland at 225kHz
+freq=225e3 # to listen Poland at 225kHz
 if [ "$1" ]; then freq=$1; fi
 echo Frequency = $freq
 
 ../../bin/sdr $device "$antenna" "$gains" $freq $samplerate 0 \
-    | ../../bin/fft-filter 16384 2800 3800 0.001 \
-    | ../../bin/demod-am \
+    | ../../bin/fft-filter 65536 50 2000 0.001 \
     | ../../bin/agc \
     | ffmpeg -loglevel quiet -f f32le -ac 2 -ar 125000 -i - \
         -filter:a "volume=30dB" -f ogg -ac 1 -ar 11025 -b 32k -content_type audio/ogg icecast://source:hackme@localhost:4625/sdr
