@@ -9,7 +9,7 @@ echo Frequency = $freq
 
 ../../bin/sdr $device "$antenna" "$gains" $freq $samplerate 0 \
     | ../../bin/agc \
-    | ../../bin/fft-filter 65536 64536 65436 0.0001 \
+    | ../../bin/fft-filter 65536 64336 65386 0.0001 \
     | ffmpeg -loglevel quiet -f f32le -ac 2 -ar 125000 -i - \
         -filter:a "volume=30dB" -f ogg -ac 1 -ar 11025 -b 32k -content_type audio/ogg icecast://source:hackme@localhost:4625/sdr
 
