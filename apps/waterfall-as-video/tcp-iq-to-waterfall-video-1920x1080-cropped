@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source ../../config/remote-by-tcp
+
+gain=50.0
+if [ "$1" ]; then gain=$1; fi
+echo Gain: $gain
+
+nc $remote_ip $remote_port \
+    | ../../bin/waterfall 2048 1080 $gain 1 \
+    | ffplay -framerate 1000000 -fflags nobuffer -flags low_delay -framedrop -fs -f rawvideo -pixel_format gray -video_size 2048x1080 -vf "crop=1920:1080:64:0" -i -
